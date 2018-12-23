@@ -1,0 +1,52 @@
+<html>
+<head>
+	
+	<title></title>
+	
+	<style>
+	
+	</style>
+
+	<script>
+		function funcaoRazao(){
+		
+		var numero1, numero2, razao;
+
+		numero1 = parseInt(document.getElementById("term1").value);
+		numero2 = parseInt(document.getElementById("term2").value);
+
+		raz = numero2 / numero1;
+
+		var conta = numero2 + " / " + numero1 + " = " + raz;
+
+		document.getElementById("razao").innerHTML = conta;
+		
+		}		
+
+	</script>
+</head>
+
+	<body>
+		
+		
+
+		<p>informe o primeiro termo: <input id = "term1" type = "number" </p>
+			
+			
+ 		<p>informe o segundo termo: <input id = "term2" type = "number" </p>
+			
+			
+
+		<p><button = type = "button" onclick = "funcaoRazao()">OK</button></p>
+			
+
+		<p>Formula: A(n)/A(n-1)</p>
+		<p id = "razao" ></p>
+			
+			
+		
+		
+	
+	</body>
+
+</html>

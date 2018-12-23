@@ -1,0 +1,113 @@
+<html>
+	<head>
+		<title>
+			Progressão Aritmética
+		</title>
+
+		<script type='text/javascript'>
+			function showHideDiv(elem){
+
+				var de = document.getElementById("cVelocidade");
+				var dt = document.getElementById("cEspaco");
+				var dv = document.getElementById("cTempo");
+				if (elem.value == "e"){
+					de.style.display = "block";
+					dt.style.display = "none";
+					dv.style.display = "none";
+				} else if (elem.value == "t"){
+					de.style.display = "none";
+					dt.style.display = "block";
+					dv.style.display = "none";			
+				} else {
+					de.style.display = "none";
+					dt.style.display = "none";
+					dv.style.display = "block";
+				}
+				
+			}	
+			
+			
+		</script>
+	</head>
+	<body onLoad="teste();">
+		<h1 align='center'> Progressão Aritmética <h1>
+		<div align="center" style="font-size:18">
+			Escolha a operação:
+			<input type="radio" name="variavel" id="var" value="e" checked onClick="showHideDiv(this);"> Razão
+			<input type="radio" name="variavel" id="var" value="t" onClick="showHideDiv(this);"> Soma
+			<input type="radio" name="variavel" id="var" value="v" onClick="showHideDiv(this);"> Termo			
+		</div>
+		<br>
+
+		<!-- calcula TERMO -->
+		<div id="cVelocidade" align="center" style="font-size:18; display:block""> 
+			<table align="center" border="1" width="300px">
+				<tr>
+					<td width="35%"> Espa&ccedil;o: </td>	
+					<td> <input type='text' id='vel1' size='10' maxlength='10'> &nbsp em m</td>
+				</tr>
+				<tr>
+					<td> Tempo: </td>
+					<td> <input type='text' id='t1' size='10' maxlength='10'> &nbsp em s</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"> 
+						<input type="button" value="Calcular" onClick="calcular(1, vel1, t1);">
+						<input type="button" value="Limpar" onclick = "limpar(vel1, t1);">
+					</td>
+				</tr>
+							
+			</table>		
+		</div>
+
+		<!-- calcula RAZAO -->
+		<div id="cEspaco" align="center" style="font-size:18; display:none"> 
+			<table align="center" border="1" width="300px">
+				<tr>
+					<td width="35%"> Velocidade: </td>	
+					<td> <input type='text' id='vel2' size='10' maxlength='10'> &nbsp em m/s</td>
+				</tr>
+				<tr>
+					<td> Tempo: </td>
+					<td> <input type='text' id='e1' size='10' maxlength='10'> &nbsp em s</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"> 
+						<input type="button" value="Calcular" onClick="calcular(2, e1, vel2);"> 
+						<input type="button" value="Limpar" onclick = "limpar(e1, vel2);">
+					</td>
+				</tr>
+							
+			</table>		
+		</div>		
+
+		<!-- calcula SOMA -->
+		<div id="cTempo" align="center" style="font-size:18; display:none"> 
+			<table align="center" border="1" width="300px">
+				<tr>
+					<td width="35%"> Velocidade: </td>	
+					<td> <input type='text' id='e2' size='10' maxlength='10'> &nbsp em m/s</td>
+				</tr>
+				<tr>
+					<td> Espa&ccedil;o: </td>
+					<td> <input type='text' id='t2' size='10' maxlength='10'> &nbsp em m</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"> 
+						<input type="button" value="Calcular" onClick="calcular(3, e2, t2);"> 
+						<input type="button" value="Limpar" onclick = "limpar(e2, t2);">
+					</td>
+				</tr>
+							
+			</table>		
+		</div>	
+			
+		<br>		
+		<div id="resultado" align="center" style="font-size:18">			
+			<label id='result'></label>
+		</div>
+
+
+	</body>	
+
+</html>

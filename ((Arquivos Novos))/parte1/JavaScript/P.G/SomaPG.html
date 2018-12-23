@@ -1,0 +1,47 @@
+<html>
+<head>
+	
+	<title></title>
+	
+	<style>
+	
+	</style>
+
+	<script>
+		
+		function funcaoTermo(){
+		
+		var numero1, numero2, numero3, termoFinal, soma;
+
+		numero1 = parseInt(document.getElementById("razao").value);
+		numero2 = parseInt(document.getElementById("termoInicial").value);
+		numero3 = parseInt(document.getElementById("ultimoTermo").value);
+
+		termoFinal = numero2 + numero1 * (numero3 - 1);
+		
+		
+		soma = (numero2*((Math.pow(numero1, numero3)-1)))/(numero1 - 1);
+
+		var conta = "(" + numero2 + " * " +numero1 + "^" + numero3 + "- 1) / " + numero1 + " - 1 = " + soma;		
+		document.getElementById("resultado").innerHTML = conta;
+		}
+		
+
+
+	</script>
+</head>
+
+	<body>
+	
+		<p>informe a razao da Progressao Aritmetica: <input id = "razao" type = "number"></p>
+		<p>informe o termo inicial: <input id = "termoInicial" type = "number"></p>
+		<p>informe o numero de termos: <input id = "ultimoTermo" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoTermo()">OK</button></p>
+		
+		<p>Formula = A(1)*(q^n)-1/q-1</p>
+		<p id = "resultado"></p>
+	
+	</body>
+
+</html>

@@ -1,0 +1,451 @@
+<html>
+<head> 
+<style> 
+
+
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100px;
+    height: 100px;
+}
+
+a:link{
+    display: block;
+    text-decoration: none;
+}
+
+</style> 
+<script> 
+
+	function start1(){
+	body.removeChild(dv);
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var dv     = document.createElement("div");
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                
+                var cell = document.createElement("td");       
+		var cellText = document.createElement("input");
+		cellText.setAttribute("id", "a"+j+"a"+i);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+	dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat");
+	 dv.setAttribute("style", "display: block");
+        tbl.setAttribute("border", "2");
+	
+        /*var teste=document.createElement("input");
+	teste.setAttribute("type","button");
+	teste.setAttribute("value","Preencha a outra");
+	body.appendChild(teste);*/
+	
+	}
+
+        function start2(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+	var dv     = document.createElement("div");
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                
+                var cell = document.createElement("td");       
+	 	var cellText = document.createElement("input");
+		
+                cellText.setAttribute("id", "b"+j+"b"+i);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat1");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+        var teste=document.createElement("input");
+	teste.setAttribute("type","button");
+	teste.setAttribute("onclick","ResolSubtraiMatriz();SubtraiMatriz()");
+	teste.setAttribute("value","Subtrair");
+	var teste1=document.createElement("input");
+	teste1.setAttribute("type","button");
+	teste1.setAttribute("onclick","ResolSomaMatriz();SomaMatriz()");
+	teste1.setAttribute("value","Somar");
+	
+	dv.appendChild(teste);
+	dv.appendChild(teste1);
+	
+	}
+	
+	function start3(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela1").value;
+        var quebra = tam.split("x");        
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+	var dv     = document.createElement("div");
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                
+                var cell = document.createElement("td");       
+		var cellText = document.createElement("input");
+		cellText.setAttribute("id", "c"+j+"c"+i);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat2");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+        var teste=document.createElement("input");
+	teste.setAttribute("type","button");
+	teste.setAttribute("onclick","ResulMultMatriz();MultMatriz()");
+	teste.setAttribute("value","Calcular");
+	dv.appendChild(teste);
+	
+	}
+        
+
+	function MultMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela1").value;
+        var quebra = tam.split("x"); 
+        var mult = parseInt(document.getElementById("multiplicador").value);
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var dv     = document.createElement("div");
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("c"+j+"c"+i).value);
+                var cell = document.createElement("td");
+	 	var cellText = document.createTextNode(mult*aux);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat3");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	}     
+
+	function SomaMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+	var dv     = document.createElement("div");
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("a"+j+"a"+i).value);
+                var aux2 = parseInt(document.getElementById("b"+j+"b"+i).value);
+                var cell = document.createElement("td");       
+	 	var cellText = document.createTextNode(aux+aux2);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat4");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	}
+
+	function SubtraiMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       var dv     = document.createElement("div");
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("a"+j+"a"+i).value);
+                var aux2 = parseInt(document.getElementById("b"+j+"b"+i).value);
+                var cell = document.createElement("td");       
+	 	var cellText = document.createTextNode(aux-aux2);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat6");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	}
+
+	function ResolSubtraiMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       var dv     = document.createElement("div");
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("a"+j+"a"+i).value);
+                var aux2 = parseInt(document.getElementById("b"+j+"b"+i).value);
+                var cell = document.createElement("td");       
+	 	var result = aux - aux2;
+		var cellText = document.createTextNode("("+aux+")-("+aux2+")="+result);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat7");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	}
+
+	function ResolSomaMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela").value;
+        var quebra = tam.split("x"); 
+       
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+		var dv = document.createElement("div");
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("a"+j+"a"+i).value);
+                var aux2 = parseInt(document.getElementById("b"+j+"b"+i).value);
+                var cell = document.createElement("td");       
+	 	var result = aux + aux2;
+		var cellText = document.createTextNode("("+aux+")+("+aux2+")="+result);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+		 dv.appendChild(tbl);        
+        body.appendChild(dv);
+        dv.setAttribute("id", "divMat5");
+	dv.setAttribute("style", "display: block");
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	}
+  	
+	function ResulMultMatriz(){
+        var body = document.getElementsByTagName("body")[0];
+        var tam = document.getElementById("Campotabela1").value;
+        var quebra = tam.split("x"); 
+        var mult = parseInt(document.getElementById("multiplicador").value);
+        var linha = parseInt(quebra[0]); 
+        var coluna = parseInt(quebra[1]);
+        var tbl     = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+
+        
+        for (var j = 0; j < linha ; j++) {
+            
+            var row = document.createElement("tr");
+
+            for (var i = 0; i < coluna; i++) {
+                var aux = parseInt(document.getElementById("c"+j+"c"+i).value);
+                var cell = document.createElement("td");
+	 	var result = mult*aux;
+		var cellText = document.createTextNode(mult+"*"+aux+"="+result);
+		
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+            }
+
+            
+            tblBody.appendChild(row);
+        }
+
+        
+        tbl.appendChild(tblBody);
+        
+        body.appendChild(tbl);
+        
+        tbl.setAttribute("border", "2");
+	
+
+
+	} 
+
+</script> 
+</head> 
+<body>
+
+<a href = "soma.html" ><INPUT TYPE="button" NAME="assunto" id="matr" VALUE="Soma e subtração de Matrizes"</a>
+
+
+
+<a href = "mult.html" ><INPUT TYPE="button" NAME="assunto" id="matriz" VALUE="Multiplica Matriz"></a>
+
+<div id="minhaDiv1" class="absolut">
+<h1>Multiplica Matriz</h1>
+<p>Digite o tamanho da matriz</p>
+<input type="text" name="intamanho" id="Campotabela1">
+<p>Digite o multiplicador da matriz</p>
+<input type="text" name="intamanho" id="multiplicador">
+<input type="button" name="gerar" id="will" onclick="start3()" value="gerar">
+
+</div>
+
+
+
+
+
+</body> 
+
+</html>

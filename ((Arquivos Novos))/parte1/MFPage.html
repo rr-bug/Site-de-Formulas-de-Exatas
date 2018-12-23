@@ -1,0 +1,135 @@
+﻿<html lang="en">
+<head>
+  <title>Matemática Financeira</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+
+	<script>
+		
+		function funcaoJurosSimples(){
+		
+		var numero1, numero2, numero3, totalDivida, totalJuros;
+
+		numero1 = parseInt(document.getElementById("dividaSimples").value);
+		numero2 = parseInt(document.getElementById("jurosSimples").value);
+		numero3 = parseInt(document.getElementById("mesesSimples").value);
+
+		
+		numero2 = numero2/100;
+		
+		totalJuros = numero1 * numero2 * numero3;
+		totalDivida = totalJuros+numero1;
+		
+		
+		var contaJ = "<b>" +numero1 + " * " + numero2 + " * " + numero3 + " = " + totalJuros + "</b>" ;
+
+		
+		var contaD = "<b>" + totalJuros + " + " + numero1 + " = " + totalDivida + "</b>" ;
+
+		
+		
+		
+		document.getElementById("totalDSimples").innerHTML = contaJ;
+		document.getElementById("totalJSimples").innerHTML = contaD;
+		}
+		
+
+
+	</script>
+	
+	
+	<script>
+		
+		function funcaoJurosCompostos(){
+		
+		var numero1, numero2, numero3, totalDivida, totalJuros;
+
+		numero1 = parseInt(document.getElementById("dividaCompostos").value);
+		numero2 = parseInt(document.getElementById("jurosCompostos").value);
+		numero3 = parseInt(document.getElementById("mesesCompostos").value);
+
+		
+		numero2 = numero2/100 +1;
+		
+
+		totalDivida = numero1*Math.pow(numero2, numero3);
+		totalJuros = totalDivida - numero1;
+
+		var contaD = "<b>" + numero1 + " * "  + numero2 + "^" + numero3 + " = " + totalDivida + "</b>" ;
+		var contaJ = "<b>" + totalDivida + " - " + numero1 + " = " + totalJuros  + "</b>" ;
+		
+		document.getElementById("totalDCompostos").innerHTML = contaD;
+		document.getElementById("totalJCompostos").innerHTML = contaJ;
+		}
+		
+
+
+	</script>
+	
+  
+  </head>
+<body>
+
+<div class="container">
+ <div class="jumbotron">
+  <center> <font color="white" face="Verdana"><h2><b>Matemática Financeira</b></h2>
+		  <h4><i>Cálculos e Fórmulas de Juros Simples e Compostos</i></h4>
+		  </font></center>
+		  </div>
+  <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#jS">Juros Simples</a></li>
+    <li><a data-toggle="pill" href="#jC">Juros Compostos</a></li>
+  </ul>
+  
+ <center> <div class="tab-content">
+    <div id="jS" class="tab-pane fade in active">
+     <font color="#DF0101"> <h3>Juros Simples</h3></font>
+      <p>Informe o valor inicial: <input id = "dividaSimples" type = "number"></p>
+		<p>Informe informe o  %juros: <input id = "jurosSimples" type = "number"></p>
+		<p>Informe o numero de meses: <input id = "mesesSimples" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoJurosSimples()">OK</button></p>
+                
+		<p>Fórmula valor Juros: J = %JurosAoMes * D * nMeses</p>
+		<p id = "totalDSimples"></p>
+		<p>Fórmula do Total do valor final: Td = J + D</p>
+		<p id = "totalJSimples"></p>
+		
+				
+    </div>
+    <div id="jC" class="tab-pane fade">
+     <font color="#DF0101"> <h3>Juros Compostos</h3> </font>
+      <p>Informe o valor Inicial: <input id = "dividaCompostos" type = "number"></p>
+		<p>Informe informe o  %juros: <input id = "jurosCompostos" type = "number"></p>
+		<p>Informe o numero de meses: <input id = "mesesCompostos" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoJurosCompostos()">OK</button></p>
+                
+		<p>Fórmula valor do Juros: TotJ = TotD - D</p>
+		<p id = "totalJCompostos"></p>
+                
+		<p>Fórmula total Valor Final: TotD = D*(%J)^t </p>
+		<p id = "totalDCompostos"></p>
+
+		
+	
+    </div>
+  </div> </center>
+<hr></div>
+<center><div>
+
+<a href = "PaginaInicial.html">Página Inicial</a>
+
+</div></center>
+<br>
+<br>
+
+<footer> 
+    <center> <p> ©  Design by Yasmin Cordeiro e Raul Guilherme Lage </p> </center>
+  </footer>
+</body>
+</html>

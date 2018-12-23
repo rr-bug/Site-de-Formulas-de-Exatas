@@ -1,0 +1,58 @@
+<html>
+<head>
+	
+	<title></title>
+	
+	<style>
+	
+	</style>
+
+	<script>
+		
+		function funcaoTermo(){
+		
+		var numero1, numero2, numero3, termoFinal, soma;
+
+		numero1 = parseInt(document.getElementById("razao").value);
+		numero2 = parseInt(document.getElementById("termoInicial").value);
+		numero3 = parseInt(document.getElementById("ultimoTermo").value);
+
+		termoFinal = numero2 + numero1 * (numero3 - 1);
+		
+		var mais, dividido, vezes, t1,ut,dois, parD, ParE ;
+			mais = " + ";
+			dividido = " / ";
+			vezes = " * ";
+			t1 = document.getElementById("termoInicial").value;
+			ut = termoFinal;
+			dois = " 2";
+			numT= numero3;
+			parD = "(";
+			parE = ")";
+
+		soma = ((numero2 + termoFinal)*(numero3))/2;
+
+		var conta = parD.concat(t1,mais,ut,vezes,numT, parE,dividido,dois)
+		
+		document.getElementById("resultado").innerHTML = conta;
+		}
+		
+
+
+	</script>
+</head>
+
+	<body>
+	
+		<p>informe a razao da Progressao Aritmetica: <input id = "razao" type = "number"></p>
+		<p>informe o termo inicial: <input id = "termoInicial" type = "number"></p>
+		<p>informe o numero de termos: <input id = "ultimoTermo" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoTermo()">OK</button></p>
+		
+		<p>Formula: S = (A(1)+A(n)*n)/2</p>
+		<p id = "resultado"></p>
+	
+	</body>
+
+</html>

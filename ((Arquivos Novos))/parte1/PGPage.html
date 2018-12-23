@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+  <title>Progressão Geométrica</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+
+	<script>
+		function funcaoRazao(){
+		
+		var numero1, numero2, razao;
+
+		numero1 = parseInt(document.getElementById("term1").value);
+		numero2 = parseInt(document.getElementById("term2").value);
+
+		raz = numero2 / numero1;
+
+		var conta = "<b>" +numero2 + " / " + numero1 + " = " + raz + "</b>" ;
+
+		document.getElementById("razaoR").innerHTML = conta;
+		
+		}		
+
+	</script>
+	
+	
+	<script>
+		
+		function funcaoSoma(){
+		
+		var numero1, numero2, numero3, termoFinal, soma;
+
+		numero1 = parseInt(document.getElementById("razaoSoma").value);
+		numero2 = parseInt(document.getElementById("termoInicialSoma").value);
+		numero3 = parseInt(document.getElementById("ultimoTermoSoma").value);
+
+		termoFinal = numero2 + numero1 * (numero3 - 1);
+		
+		
+		soma =  (numero2*((Math.pow(numero1, numero3)-1)))/(numero1 - 1) ;
+
+		var conta = "<b>" +"(" + numero2 + " * " +numero1 + "^" + numero3 + "- 1) / " + numero1 + " - 1 = " + soma + "</b>";		
+		document.getElementById("somaS").innerHTML = conta;
+		}
+		
+
+
+	</script>
+	
+	<script>
+		
+		function funcaoTermo(){
+		
+		var numero1, numero2, numero3, termoFinal;
+
+		numero1 = parseInt(document.getElementById("razaoTermo").value);
+		numero2 = parseInt(document.getElementById("termoInicialTermo").value);
+		numero3 = parseInt(document.getElementById("termoDesejadoTermo").value);
+
+		termoFinal = (Math.pow(numero1, (numero3 - 1)))*numero2;
+
+		var conta = "<b>" + numero1 + "^(" + numero3 + "- 1) * " + numero2 + " = " + termoFinal + "</b>" ;
+		
+		document.getElementById("termoT").innerHTML = conta;
+		
+		}
+
+	</script>
+  
+  </head>
+<body>
+
+<div class="container">
+ <center><div class="jumbotron">
+  <font color="white" face="Verdana"> <h2><b>Progressão Geométrica</b></h2>
+  <h4><i> Cálculo da Razão, de Termo e de Soma nas Progressões Geométricas </i></h4></font>
+  </div> </center>
+  
+ <ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#razao">Razão</a></li>
+    <li><a data-toggle="pill" href="#termo">Termo</a></li>
+    <li><a data-toggle="pill" href="#soma">Soma</a></li>
+  </ul> 
+  <center> <div class="tab-content"> 
+    <div id="razao" class="tab-pane fade in active">
+      
+	  <font color="#DF0101"><h3>Razão</h3></font>
+      <p>Informe o primeiro termo: <input id = "term1" type = "number" </p>
+	  <p>Informe o segundo termo: <input id = "term2" type = "number" </p>
+	  <p><button = type = "button" onclick = "funcaoRazao()">OK</button></p>
+	  <p>Fórmula: A(n)/A(n-1)</p>
+	  <p id = "razaoR" ></p>
+	  
+    </div>
+    <div id="termo" class="tab-pane fade">
+     <font color="#DF0101"> <h3>Termo</h3> </font>
+      <p>Informe a razão da Progressão Aritmética: <input id = "razaoTermo" type = "number"></p>
+		<p>Informe o termo inicial: <input id = "termoInicialTermo" type = "number"></p>
+		<p>Informe o termo desejado: <input id = "termoDesejadoTermo" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoTermo()">OK</button></p>
+		
+		<p>Fórmula: A(n) = (q^A(n-1)) * A(1)</p>
+		<p id = "termoT"></p>
+	
+    </div>
+    <div id="soma" class="tab-pane fade">
+      <font color="#DF0101"><h3>Soma</h3></font>
+      <p>Informe a razão da Progressão Aritmética: <input id = "razaoSoma" type = "number"></p>
+		<p>Informe o termo inicial: <input id = "termoInicialSoma" type = "number"></p>
+		<p>Informe o numero de termos: <input id = "ultimoTermoSoma" type = "number"></p>
+		
+		<p><button type = "button" onclick = "funcaoSoma()">OK</button></p>
+		
+		<p>Fórmula = A(1)*(q^n)-1/q-1</p>
+		<p id = "somaS" ></p>
+    </div>
+  </div>
+<hr></div>
+
+</center>
+
+<center><div>
+
+<a href = "PaginaInicial.html">Página Inicial</a>
+
+</div></center>
+<br>
+<br>
+
+<footer> 
+    <center> <p> ©  Design by Yasmin Cordeiro e Raul Guilherme Lage </p> </center>
+  </footer>
+</body>
+</html>

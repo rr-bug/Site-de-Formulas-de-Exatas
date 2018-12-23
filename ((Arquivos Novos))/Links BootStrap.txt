@@ -1,0 +1,7 @@
+http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_button_styles&stacked=h
+
+http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_scrollspy&stacked=h
+
+http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_carousel&stacked=h
+
+http://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_form_horizontal_all&stacked=h

@@ -1,0 +1,274 @@
+<html>
+<head> 
+<style> 
+div{
+display: none;
+border: 1px solid black;
+}
+
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 100px;
+    height: 100px;
+}
+
+</style> 
+<script> 
+	
+        function aparece(el,il,ol){
+	var display = document.getElementById(el).style.display;
+        document.getElementById(el).style.display = 'block';
+         some(il);
+         some(ol);
+         }
+
+        function some(o){
+        var display = document.getElementById(o).style.display;
+        document.getElementById(o).style.display = 'none';
+         } 
+        
+        function permutacaosimples(){
+	var x = parseInt(document.getElementById("per1").value);
+        var i; 
+        var total= 1;
+        var equa = x + "! " + " = ";
+        var final = " 1 ";
+        for(i=2; i<=x;i++){
+	total = total*i;
+        } 
+        for(i=x;i>1;i--){
+         equa = equa + i + " * "; 
+        }
+        equa = equa + final;
+        document.getElementById("total").innerHTML = total;
+        document.getElementById("reso").innerHTML = "P = n! " + "<br>" + equa;
+   	}
+
+	function permutar(){
+	var x = parseInt(document.getElementById("per2").value);
+	var y = document.getElementById("rep").value;
+	var repete = y.split(";");
+	var totale= 1;
+	var digitos = [];
+	var divisores= [];
+        var divisorfinal = 1;
+        var resultadofinale= 0;
+        var eq = document.getElementById("per2").value + "! / " ;
+        var temp = "";
+	var equa = "";
+        var digs = "";
+	for(i=2; i<=x;i++){
+	totale = totale*i;
+        } 
+	for(j=0;j<repete.length;j++){
+	digitos[j] = parseInt(repete[j]);
+		temp = temp +digitos[j]+"! "; 
+		divisores[j] = 1;
+		for(i=2; i<= digitos[j] ; i++){
+		divisores[j] = divisores[j]*i ;		
+				}       
+	}
+         for(q=0;q<divisores.length;q++){
+	 divisorfinal = divisorfinal * divisores[q];
+	}
+        resultadofinale = totale/divisorfinal;
+        eq = eq + temp;
+        for(i=x;i>1;i--){
+         equa = equa + i + " * "; 
+        }
+	for(i=0 ; i<digitos.length ; i++){
+	for(j=digitos[i]; j>1 ; j--){
+	digs = digs + j +" * ";
+	}
+         digs = digs + "1 *";
+	}
+	var aux = digs.length - 1;
+        digs = digs.substring(0,aux);
+        document.getElementById("certo").innerHTML = resultadofinale;
+        document.getElementById("resolu").innerHTML = "n! / a!*b!..."+ "<br>" + eq + "<br>" + equa + " 1 / " + digs +"<br>" + totale + " / " + divisorfinal;
+        
+        } 
+
+        function arranjar(){
+	var x = parseInt(document.getElementById("conj").value);
+	var y = parseInt(document.getElementById("parte").value);
+	var dividendo = 1; 
+        var temp = x-y;
+	var divisor= 1;
+        var arranjado = 0;
+        var eq2 = x + "! /" + "(" + x +"-"+ y + ")!";
+        var equa="";
+	var eua="";
+	for(i=2; i<=x;i++){
+	dividendo = dividendo*i;
+        }
+        for(i=2; i<=temp;i++){
+	divisor = divisor*i;
+        }
+	for(i=x;i>1;i--){
+         equa = equa + i + " * "; 
+        }
+        for(i=temp;i>1;i--){
+         eua = eua + i + " * "; 
+        }
+        arranjado = dividendo/divisor; 
+        document.getElementById("certo2").innerHTML = arranjado;
+        document.getElementById("resolu2").innerHTML = "n! / (n-p)!"+ "<br>" + eq2 + "<br>" + equa + "1 /" + eua +"1" + "<br>" + dividendo + "/ " + divisor;
+	}
+         
+        function combinar(){
+	var x = parseInt(document.getElementById("conj2").value);
+	var y = parseInt(document.getElementById("parte2").value);
+	var dividendo1 = 1; 
+        var temp = x-y;
+	var divisor1= 1;
+        var divisor2= 1;
+	var divisorfinale= 0;
+        var combinado = 0;
+        var eq3 = x + "! /" + y + "!" + "(" + x +"-"+ y + ")!";
+        var equa="";
+	var eua="";
+        var usa="";
+	for(i=2; i<=x;i++){
+	dividendo1 = dividendo1*i;
+        }
+        for(i=2; i<=temp;i++){
+	divisor1 = divisor1*i;
+        }
+	for(i=2; i<=y;i++){
+	divisor2 = divisor2*i;
+        }
+	for(i=x;i>1;i--){
+         equa = equa + i + " * "; 
+        }
+	for(i=temp;i>1;i--){
+         eua = eua + i + " * "; 
+        }
+	for(i=y;i>1;i--){
+         usa = usa + i + " * "; 
+        }
+        divisorfinale = divisor2*divisor1;
+        combinado = dividendo1/divisorfinale; 
+        document.getElementById("certo3").innerHTML = combinado;
+        document.getElementById("resolu3").innerHTML = "n! / p!(n-p)!" +"<br>" + eq3 + "<br>" + equa + " / " + usa + eua +"1" + "<br>" + dividendo1 + " / " + divisorfinale;
+	}
+
+</script> 
+</head> 
+<body>
+
+<INPUT TYPE="button" NAME="assunto" id="pal" VALUE="Permutação" onclick="aparece('minhaDiv','minhaDiv1','minhaDiv2')"> 
+
+
+<INPUT TYPE="button" NAME="assunto" id="nau" VALUE="Arranjo" onclick="aparece('minhaDiv1','minhaDiv','minhaDiv2')">
+
+<INPUT TYPE="button" NAME="assunto" id="fla" VALUE="Combinação" onclick="aparece('minhaDiv2','minhaDiv','minhaDiv1')"> 
+
+<div id="minhaDiv" class="absolut">
+<h1>Permutação Simples</h1>
+<p>Podemos considerar a permutação simples como um caso particular de arranjo, onde os elementos formarão agrupamentos que se diferenciarão somente pela ordem.</p>
+
+<table> 
+<tr>
+<td>Digite o numero de elementos que deseja permutar:<td> 
+<td><input type="text" id="per1"></td> 
+<td><input type="button" onclick="permutacaosimples()" value="OK"></td> 
+</tr> 
+<tr>
+<td>O numero das variações possíveis é:</td>
+<td><p id="total"></p></td>
+</tr>
+<tr>
+<td>Resolução : </td>
+<td><p id="reso"></p></td>
+</tr>
+</table>
+
+<h1>Permutação com repetição</h1> 
+
+<p>Podemos considerar a permutação simples com repetição como um caso particular de arranjo, onde os elementos formarão agrupamentos que se diferenciarão em partes repetidas e NÃO somente pela ordem.</p>
+
+<table> 
+<tr>
+<td>Digite o numero de elementos que deseja permutar:<td> 
+<td><input type="text" id="per2"></td> 
+</tr>
+<tr>
+<td>Digite a quantidade do elemento (caso seja mais de um separar por ';') que se repete:<td> 
+<td><input type="text" id="rep"></td> 
+<td><input type="button" onclick="permutar()" value="OK"></td> 
+</tr>  
+<tr>
+<td>O numero das variações possíveis é:</td>
+<td><p id="certo"></p></td>
+</tr>
+<tr>
+<td>Resolução : </td>
+<td><p id="resolu"></p></td>
+</tr>
+</table>
+
+</div>
+
+<div id="minhaDiv1" class="absolut">
+<h1>Arranjo simples</h1>
+<p>Arranjos são agrupamentos nos quais a ordem dos seus elementos faz a diferença.</p>
+
+<table> 
+<tr>
+<td>Digite a quantidade de elementos do conjunto:<td> 
+<td><input type="text" id="conj"></td> 
+</tr> 
+<tr>
+<td>Digite a quantidade que deseja agrupar:<td> 
+<td><input type="text" id="parte"></td> 
+<td><input type="button" onclick="arranjar()" value="OK"></td> 
+</tr>
+<tr>
+<td>O numero dos arranjos formados é:</td>
+<td><p id="certo2"></p></td>
+</tr>
+<tr>
+<td>Resolução : </td>
+<td><p id="resolu2"></p></td>
+</tr>
+</table>
+
+</div>
+
+
+<div id="minhaDiv2" class="absolut">
+
+<h1>Combinação simples</h1>
+<p>Na combinação simples, a ordem dos elementos no agrupamento não interfere. São arranjos que se diferenciam somente pela natureza de seus elementos.</p>
+
+<table> 
+<tr>
+<td>Digite a quantidade de elementos do conjunto:<td> 
+<td><input type="text" id="conj2"></td> 
+</tr> 
+<tr>
+<td>Digite a quantidade que deseja agrupar:<td> 
+<td><input type="text" id="parte2"></td> 
+<td><input type="button" onclick="combinar()" value="OK"></td> 
+</tr>
+<tr>
+<td>O numero das combinações formadas é:</td>
+<td><p id="certo3"></p></td>
+</tr>
+<tr>
+<td>Resolução : </td>
+<td><p id="resolu3"></p></td>
+</tr>
+</table>
+
+</div>
+
+
+
+
+</body> 
+
+</html>
