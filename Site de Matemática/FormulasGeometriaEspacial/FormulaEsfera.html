@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>
+			Esfera			
+		</title>
+		 <meta charset="UTF-8"> 
+		<script type='text/javascript'>
+			function showHideDiv(elem){
+
+				var da = document.getElementById("cArea");
+				var dv = document.getElementById("cVolume");
+				if (elem.value == "da"){
+					da.style.display = "block";
+					dv.style.display = "none";
+				} else if (elem.value == "dv"){
+					da.style.display = "none";
+					dv.style.display = "block";		
+				}
+				
+			}	
+			
+			function calcular(tipo, var1){
+				var resultado = document.getElementById('result');
+				var r;
+				if (tipo == 1){
+					r = 4 * Math.PI * Math.pow(var1.value,2);
+					resultado.innerHTML =  "Fórmula = 4 * PI * r² "+ "<br> Área = 4 * 3,14 * " + var1.value + "² " +  "<br>" + "Área = " + r + " m²";
+				} else if (tipo == 2){
+					r = (4/3) * Math.PI * Math.pow(var1.value,3);
+					resultado.innerHTML =  "Fórmula = 4/3 * PI * r³ "+ "<br> Área = 4 * 3,14 * " + var1.value + "² " +  "<br>" + "Área = " + r + " m²";
+				} 
+			}
+
+			function limpar(var1){
+				var1.value="";
+				document.getElementById('result').innerHTML ="";
+			}
+			
+		</script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+  <script src="../bootstrap/js/bootstrap.js"></script>      
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">  
+  <link rel="stylesheet" href="../edições.css">
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li><a href="../Inicio.html">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> IFBA <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="http://www.portal.ifba.edu.br/"> GERAL </a></li>
+        <li><a href="http://www.portoseguro.ifba.edu.br/"> Porto Seguro </a></li>
+        <li><a href="https://portaldoaluno.ifba.edu.br/"> Portal do Aluno </a></li>                        
+		<li><a href="http://gpdac.ifba.edu.br/Projetos/Computafisica/layout/index.html"> ComputaFísica </a></li>                        
+      </ul>
+    </li>
+    <li><a href="http://desconversa.com.br/categoria/matematica/"> Explore </a></li>
+    <li><a href="http://www.somatematica.com.br/matkids/game.php"> Jogos </a></li>	
+	<li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Conteúdos <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Geometria%20Analitica%20e%20Algebra%20Linear%20-%20Uma%20Visao%20Geometrica%20-%20TI.pdf"> Geometria Analítica </a></li>
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Fundamentos_de_geometria_plana.pdf"> Geometria Plana </a></li>
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Fundamentos_de_geometria_espacial-sergio-02.pdf"> Geometria Espacial </a></li>                        
+      </ul>
+    </li>
+	<li><a href="http://vestibular.uol.com.br/noticias/redacao/2013/08/13/guia-de-estudos-confira-10-temas-essenciais-de-matematica.htm"> Notícias </a></li>	
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+  </ul>
+</div><br>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1> Só Fórmulas de Matemática </h1>
+    <p> ...você está acessando o portal de Matemática! </p> 
+  </div>
+  <div class="row">
+	<div class="col-md-4">
+        <p><img src="../geometriaPlana.gif" class="img-circle" alt="Cinque Terre" width="234" height="216"> </p>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <h1 align='center'> Esfera </h1>
+		<div align="center" style="font-size:18"> Escolha a variável:
+			<label class="radio-inline">
+				<input type="radio" name="variavel" id="var" value="da" checked onClick="showHideDiv(this); limpar(vel1);"> Área
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="variavel" id="var" value="dv" onClick="showHideDiv(this); limpar(vel1);"> Volume
+			</label>
+		</div>	<br>
+
+		<!-- calculo 1 -->
+		<div class="form-horizontal" id="cArea" align="center" style="font-size:18; display:block"> 
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Raio:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel1' maxlength='10' placeholder=" em m"> 
+				</div>
+			</div>
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" onClick="calcular(1, vel1);">Enviar</button>
+					<button type="reset" class="btn btn-default" onclick = "limpar(vel1);">Limpar</button>
+				</div>
+			</div>
+		</div>
+  
+		<!-- calculo 2 -->		
+		<div class="form-horizontal" id="cVolume" align="center" style="font-size:18; display:none"> 
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Raio:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel2' maxlength='10' placeholder=" em m"> 
+				</div>
+			</div>
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" onClick="calcular(2, vel2);">Enviar</button>
+					<button type="reset" class="btn btn-default" onclick = "limpar(vel2);">Limpar</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- resultado -->
+		<div id="resultado" align="center" style="font-size:18">			
+			<label id='result'></label>
+		</div>
+		
+		</center> 
+    </div>
+	<div class="col-md-4">
+        <img src="../geometriaAnalitica.jpg" class="img-circle" alt="Cinque Terre" width="284" height="206"> 
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <ul class="pager">
+    <li><a href="../Inicio.html">Beck</a></li>    
+	<li><a href="../GeometriaEspacial.html">Fórmulas</a></li>
+    <li><a href="../NOVOASSUNTO/Inicio.html">Next</a></li>
+  </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>
+			Área, Baricentro
+	</title>
+
+	<script type='text/javascript'>
+			function showHideDiv(elem){
+
+				var dx = document.getElementById("cBaricentroX");
+				var dy = document.getElementById("cBaricentroY");
+				var da = document.getElementById("cÁrea");
+				if (elem.value == "dx"){
+					dx.style.display = "block";
+					dy.style.display = "none";			
+					da.style.display = "none";			
+				}else if (elem.value == "dy"){
+					dx.style.display = "none";			
+					dy.style.display = "block";
+					da.style.display = "none";			
+				}else if (elem.value == "da"){
+					dx.style.display = "none";
+					dy.style.display = "none";			
+					da.style.display = "block";					
+				}
+				
+			}	
+			
+			function calcularTres(tipo, var1, var2, var3){
+				var resultado = document.getElementById('result');
+				var r;
+				if (tipo == 1){					
+					r = (parseInt(var1.value) + parseInt(var2.value) + parseInt(var3.value)) / 3;
+					resultado.innerHTML =  "Fórmula = Xa + Xb + Xc / 3  "+ "<br> " + var1.value + " + " + var2.value + " + " + var3.value + " / 3" + "<br>" + "Baricentro X = " + r + " ";
+				} else if (tipo == 2){
+					r = (parseInt(var1.value) + parseInt(var2.value) + parseInt(var3.value)) / 3;
+					resultado.innerHTML =  "Fórmula = Ya + Yb + Yc / 3  "+ "<br> " + var1.value + " + " + var2.value + " +  " + var3.value + " / 3" + "<br>" + "Baricentro Y = " + r + " ";				
+				} 
+			}			
+			
+			function calcular(tipo, var1){
+				var resultado = document.getElementById('result');
+				var r;
+				if (tipo == 3){
+					r = var1.value / 2;
+					resultado.innerHTML =  "Formula = | D | / 2;  "+ "<br> |" + var1.value + "| / 2" + "<br>" + "Área do Triângulo = " + r + " m²";
+				} 
+			}
+			
+			function limparTres(var1, var2, var3, var4){
+				document.getElementById(var1).value="";
+				document.getElementById(var2).value="";
+				document.getElementById(var3).value="";
+				document.getElementById(var4).value="";
+				document.getElementById('result').innerHTML ="";
+			}
+			function limpar(var1){
+				document.getElementById(var1).value="";
+				document.getElementById('result').innerHTML ="";
+			}
+			
+	</script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+  <script src="../bootstrap/js/bootstrap.js"></script>      
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">  
+  <link rel="stylesheet" href="../edições.css">
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li><a href="../Inicio.html">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> IFBA <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="http://www.portal.ifba.edu.br/"> GERAL </a></li>
+        <li><a href="http://www.portoseguro.ifba.edu.br/"> Porto Seguro </a></li>
+        <li><a href="https://portaldoaluno.ifba.edu.br/"> Portal do Aluno </a></li>                        
+		<li><a href="http://gpdac.ifba.edu.br/Projetos/Computafisica/layout/index.html"> ComputaFísica </a></li>                        
+      </ul>
+    </li>
+    <li><a href="http://desconversa.com.br/categoria/matematica/"> Explore </a></li>
+    <li><a href="http://www.somatematica.com.br/matkids/game.php"> Jogos </a></li>	
+	<li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Conteúdos <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Geometria%20Analitica%20e%20Algebra%20Linear%20-%20Uma%20Visao%20Geometrica%20-%20TI.pdf"> Geometria Analítica </a></li>
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Fundamentos_de_geometria_plana.pdf"> Geometria Plana </a></li>
+        <li><a href="http://www.mat.ufmg.br/ead/acervo/livros/Fundamentos_de_geometria_espacial-sergio-02.pdf"> Geometria Espacial </a></li>                        
+      </ul>
+    </li>
+	<li><a href="http://vestibular.uol.com.br/noticias/redacao/2013/08/13/guia-de-estudos-confira-10-temas-essenciais-de-matematica.htm"> Notícias </a></li>	
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+  </ul>
+</div><br>
+
+
+<div class="container">
+  <div class="jumbotron">
+    <h1> Só Fórmulas de Matemática </h1>
+    <p> ...você está acessando o portal de Matemática! </p> 
+  </div>
+  <div class="row">
+	<div class="col-md-4">
+        <p><img src="../geometriaPlana.gif" class="img-circle" alt="Cinque Terre" width="234" height="216"> </p>
+      </a>
+    </div>
+    <div class="col-md-4">
+		<h1 align='center'> Área, Baricentro </h1>
+		
+				<div align="center" style="font-size:18"> Escolha a variável:			
+			<label class="radio-inline">
+				<input type="radio" name="variavel" id="var" value="dx" checked onClick="showHideDiv(this); limparTres(vel1, vel2, vel3);"> Baricentro X
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="variavel" id="var" value="dy" onClick="showHideDiv(this); limparTres(vel1, vel2, vel3);"> Baricentro Y
+			</label>
+			<label class="radio-inline">
+				<input type="radio" name="variavel" id="var" value="da" onClick="showHideDiv(this); limpar(vel1);"> Área do Polígono
+			</label>
+		</div>	<br>
+
+		<!-- calculo 1 -->
+		<div class="form-horizontal" id="cBaricentroX" align="center" style="font-size:18; display:block"> 
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Xa:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel1' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Xb:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel2' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Xc:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel3' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" onClick="calcularTres(1, vel1, vel2, vel3);">Enviar</button>
+					<button type="reset" class="btn btn-default" onclick = "limparTres(vel1, vel2, vel3);">Limpar</button>
+				</div>
+			</div>
+		</div>
+  
+		<!-- calculo 2 -->		
+		<div class="form-horizontal" id="cBaricentroY" align="center" style="font-size:18; display:none"> 
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Ya:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel4' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Yb:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel5' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Yc:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel6' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" onClick="calcularTres(2, vel4, vel5, vel6);">Enviar</button>
+					<button type="reset" class="btn btn-default" onclick = "limparTres(vel4, vel5, vel6);">Limpar</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- calculo 3 -->		
+		<div class="form-horizontal" id="cÁrea" align="center" style="font-size:18; display:none"> 
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="email">Variação:</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id='vel7' maxlength='10' placeholder=" "> 
+				</div>
+			</div>
+			<div class="form-group">        
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-default" onClick="calcular(3, vel7);">Enviar</button>
+					<button type="reset" class="btn btn-default" onclick = "limpar(vel7);">Limpar</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- resultado -->
+		<div id="resultado" align="center" style="font-size:18">			
+			<label id='result'></label>
+		</div></center>
+  
+    </div>
+	<div class="col-md-4">
+        <img src="../geometriaAnalitica.jpg" class="img-circle" alt="Cinque Terre" width="284" height="206"> 
+      </a>
+    </div>
+  </div>
+</div>
+	
+
+<div class="container">
+  <ul class="pager">
+    <li><a href="../Inicio.html">Beck</a></li>    
+	<li><a href="../GeometriaAnalitica.html">Fórmulas</a></li>
+    <li><a href="../NOVOASSUNTO/Inicio.html">Next</a></li>
+  </ul>
+</div>
+
+</body>
+</html>
