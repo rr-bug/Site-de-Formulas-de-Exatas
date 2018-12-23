@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>fórmulasExatas</title>
+    <script type='text/javascript' src="JS/inicio.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
+  <link rel="stylesheet" href="Edicao/edições.css">  
+  <link rel="stylesheet" href="Edicao/bootstrap/css/bootstrap.css">  
+  <script src="Edicao/bootstrap/js/bootstrap.js"></script>        
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li><a href="Inicio.html">Home</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> IFBA <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="http://www.portal.ifba.edu.br/"> GERAL </a></li>
+        <li><a href="http://www.portoseguro.ifba.edu.br/"> Porto Seguro </a></li>
+        <li><a href="https://portaldoaluno.ifba.edu.br/scripts/PortalAluno/index.html"> Portal do Aluno </a></li>                        		
+      </ul>
+    </li>
+    <li><a href="#"> Explore </a></li>    
+	<li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Conteúdos <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="Conteudo/ConteudoFisica/ConteudoFisica.html"> Física </a></li>
+        <li><a href="Conteudo/ConteudoMatematica/ConteudoMatematica.html"> Matemática</a></li>                                
+        <li><a href="Conteudo/ConteudoMatematica/ConteudoQuimica.html"> Química</a></li>                                
+      </ul>
+  </li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="Inicio.html"><span class="glyphicon glyphicon-log-in"></span> Sair </a></li>
+      </ul>
+  </ul>
+</div><br>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1> Só Fórmulas de Exatas </h1>
+    <p> ...você está acessando o portal das fórmulas de Física, Matemática e Química! </p> 
+  </div>
+  <div id="estrutura1" class="row">
+	<div class="col-md-4">
+     <center> <a href="FormulasFisica/Geral1.html" class="thumbnail">
+		<center><h2>Física</h2></center>
+        <p> Conheça e calcule várias grandezas da natureza... </p>    
+        <img src="física.png" class="img-circle" alt="Cinque Terre" width="834" height="816"> 
+      </a></center>
+    </div>
+    <div class="col-md-4">
+      <center><a href="FormulasMatematica/Geral1.html" class="thumbnail">
+		<center><h2>Matemática</h2></center>
+        <p> Analise todos os fatos e ganhe cálculos matemáticos resolvidos... </p>    
+        <img src="matemática.png" class="img-circle" alt="Cinque Terre" width="230" height="296"> 
+      </a></center>
+    </div>
+    <div class="col-md-4">
+      <center><a href="FormulasQuimica/Geral1.html" class="thumbnail">
+    <center><h2>Química</h2></center>
+        <p> Descubra cada elemento e suas reações... </p>    
+        <img src="quimica.png" class="img-circle" alt="Cinque Terre" width="274" height="296"> 
+      </a></center>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <ul class="pager">
+    <li><a href="#" data-toggle="modal" data-target="#modalFisica">Conversões das Grandezas da Física (S.I.)</a></li>
+    <li><a href="#" data-toggle="modal" data-target="#modalMatematica">Conversões das Grandezas da Matemática (S.I.)</a></li>
+    <li><a href="#" data-toggle="modal" data-target="#modalQuimica">Conversões das Grandezas da Química (S.I.)</a></li>
+  </ul>
+</div>
+
+  <div class="modal fade" id="modalFisica" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <center><h4 class="modal-title">Conversões das Grandezas da Física</h4></center><br>
+        
+        <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalComprimento">Comprimento</a>
+        </div>
+        <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalMassa">Massa</a>
+        </div>
+        <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalComprimento">Temperatura</a>
+        </div>
+          <br><br><br>
+         <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalComprimento">Quantidade de Matéria</a>
+        </div>
+        <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalComprimento">Intensidade Luminosa</a>
+        </div>
+        <div class="col-md-4" role="group">
+          <a href="#" class="btn btn-primary bloco" data-toggle="modal" data-target="#modalComprimento">Corrente Elétrica</a>
+        </div><br><br><br>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+<div class="modal fade" id="modalComprimento" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <center><h4 class="modal-title">Conversões de Comprimento</h4></center><br>
+        
+           
+    <div class="form-horizontal" id="cBaricentroX" align="center" style="font-size:18; display:block"> 
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Valor:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id='vel1' maxlength='10' placeholder="números"> 
+        </div>
+      </div>
+      <div class="form-group">
+      <label class="control-label col-sm-3" for="email">De:</label>
+        <div class="col-sm-8">
+        <div class="dropup">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comprimento
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Km</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">M</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dm</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cm</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mm</a></li>      
+    </ul>
+  </div>
+        </div> 
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-3" for="email">Para:</label>
+        <div class="col-sm-8">
+        <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Comprimento
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Km</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">M</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Dm</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cm</a></li>      
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mm</a></li>      
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default" onClick="calcularTres(1, vel1, vel2, vel3);">Enviar</button>
+          <button type="reset" class="btn btn-default" onclick = "limparTres(vel1, vel2, vel3);">Limpar</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- resultado -->
+    <div id="resultado" align="center" style="font-size:18">      
+      <label id='result'></label>
+    </div></center>
+  
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+<div class="modal fade" id="modalMatematica" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+
+<div class="modal fade" id="modalQuimica" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div>
+</body>
+</html>
